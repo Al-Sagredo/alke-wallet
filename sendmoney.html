@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Enviar Dinero</title>
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center fw-bold mb-4">Enviar Dinero</h2>
+
+        <form id="form-busqueda" action="menu.html"><!--formulario de busqueda-->
+            <div class="input-group mb-3">
+                <input class="form-control" type="text" id="buscar" name="buscar" placeholder="Ej: Juan">
+                <button class="btn btn-outline-secondary" type="submit" >Buscar</button>
+            </div>
+            <div class="my-4" style="display:none;" id="contenedor-contactos"><!--lista de contactos-->
+                <h4 class="mb-3">Selecciona un Contacto</h4>
+                <div class="list-group" id="lista-contactos">
+                    <button type="button" class="list-group-item list-group-item-action contacto-item">
+                        <strong>Juan Perez</strong> - Alias: juan.pago - Banco: Estado
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action contacto-item">
+                        <strong>Maria Gomez</strong> - Alias: maria.wallet - Banco: Santander
+                    </button>
+                    <button type="button" class="list-group-item list-group-item-action contacto-item">
+                        <strong>Carlos Rodriguez</strong> - Alias: carlitos.cbu - Banco: Itau
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <form style="display:none;" id="form-nuevo-contacto"><!--formulario nuevo contacto-->
+            <h5 class="my-5">Agregar nuevo contacto</h5>
+            <div class="mb-3"><label class="form-label" for="nombre">Nombre</label>
+                <input class="form-control" id="nombre" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="apellido">Apellido</label>
+                <input class="form-control" id="apellido" type="text">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="cbu">CBU</label>
+                <input class="form-control" id="cbu" type="number" placeholder="Ej:123456">
+            </div>
+            <div class="mb-3">
+                <label class="form-label" for="banco">Nombre del Banco</label>
+                <input class="form-control" id="banco" type="text">
+            </div>
+            <button id="btn-guardar" class="btn btn-success" type="submit">Guardar</button>
+            <button id="btn-cancelar" class="btn btn-secondary" type="button">Cancelar</button>
+        </form>
+        <button id="btn-nuevo-contacto" class="btn btn-secondary mb-3" type="button">Agregar nuevo contacto</button>
+
+        <form id="form-enviar-dinero" style="display:none;"><!--formulario enviar dinero-->
+            <div class="mb-3 mt-3">
+                <label class="form-label" for="monto-enviar">Monto a enviar: </label>
+                <input class="form-control" id="monto-enviar" type="number">
+            </div>
+            <button type="submit" class="btn btn-danger w-100">Enviar dinero</button>
+
+        </form>
+
+        <div id="alert-container-envio"></div><!--inyeccion jquery-->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
+        </script>
+
+  
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="js/sendmoney.js"></script>
+</body>
+
+</html>
