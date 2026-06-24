@@ -4,8 +4,8 @@
 
 ##  Demostración en Vivo
 Puedes interactuar con el prototipo funcional directamente desde tu navegador en el siguiente enlace:
-**[Ver Demostración en Vivo - Alke Wallet](https://al-sagredo.github.io/alke-wallet/login.html)**
-Email: user@wallet.com
+**[Ver Demostración en Vivo - Alke Wallet](https://al-sagredo.github.io/alke-wallet/login.html)**  
+Email: `user@wallet.com`
 Contraseña: 1234
 
 ---
