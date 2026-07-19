@@ -9,28 +9,39 @@
     <title>Depositar</title>
 </head>
 
-<body>
-    <div class="container mt-5">
+<body class="bg-light">
+    <header class="text-center my-4">
+        <h1 class="text-primary fw-bold">Alke Wallet</h1>
+    </header>
+    <main class="container mt-5">
         <h2 class="text-center fw-bold mb-4">Depositar</h2>
         <h3 id="saldo-actual" class="fw-bold text-center"></h3><!--inyeccion de jquery-->
         <div id="alert-container"></div> <!--inyeccion de jquery-->
+        <section class="card p-4 shadow-sm mt-4">
         <form id="form-depositar" action="menu.html">
             <div class="mb-3">
                 <label for="monto" class="form-label">Ingrese monto</label>
                 <input id="monto" name="monto" class="form-control" placeholder="Ej: 1000" type="number" required
-                    min="1">
+                    min="1">    
             </div>
             <button type="submit" class="btn btn-success w-100">Realizar depósito</button>
         </form>
+        </section>
         <p class="fw-bold text-center mt-4" id="monto-depositado"></p><!--inyeccion de jquery-->
-    </div>
+        <nav class="text-center mt-4">
+            <a href="menu.html" class="btn btn-outline-secondary">Volver al Menu Principal</a>
+        </nav>
+    </main>
+    <footer class="text-center text-muted my-4">
+        <small>&copy;2026 Alke Wallet. Todos los derechos reservados.</small>
+    </footer>
 
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
         </script>
-    <script src="js/deposit.js"></script>
+    <script src="assets/js/deposit.js"></script>
 </body>
 
 </html>
