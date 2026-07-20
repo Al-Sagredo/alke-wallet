@@ -1,4 +1,4 @@
-saldo = localStorage.getItem("saldo"); //captura el saldo guardado en memoria (seteado en login.html)
+saldo = localStorage.getItem("saldo"); //captura el saldo guardado en memoria (seteado en login.js)
 
 $("#saldo-display").text("$" + saldo);
 

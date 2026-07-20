@@ -1,3 +1,9 @@
+//Mostrar saldo 
+saldo = localStorage.getItem("saldo"); //captura el saldo guardado en memoria
+$("#saldo-actual").text("Saldo disponible: $" + saldo);
+
+
+//Mostrar/Ocultar Formulario de Nuevo Contacto
 $("#btn-nuevo-contacto").click(function (e) {
     e.preventDefault();
     $("#form-nuevo-contacto").show();
@@ -14,64 +20,94 @@ $("#btn-cancelar").click(function (e) {
     $("#banco").val("");
 })
 
+//Guardar Nuevo Contacto
 $("#form-nuevo-contacto").submit(function (e) {
     e.preventDefault();
-    const nombre = $("#nombre").val();
-    const apellido = $("#apellido").val();
-    const cbu = $("#cbu").val();
-    const banco = $("#banco").val();
+    const nombre = $("#nombre").val().trim();
+    const apellido = $("#apellido").val().trim();
+    const cbu = $("#cbu").val().trim();
+    const banco = $("#banco").val().trim();
+
     if (nombre == "" || apellido == "" || cbu == "" || banco == "") {
         alert("Completa todos los campos");
-    } else if (cbu.length != 6) {
-        alert("El CBU debe tener 6 dígitos");
-
-    } else {
-        alert("Contacto guardado");
-        $("#form-nuevo-contacto").hide();
-        $("#btn-nuevo-contacto").show();
-        $("#nombre").val("");
-        $("#apellido").val("");
-        $("#cbu").val("");
-        $("#banco").val("");
+        return;
     }
+    if (cbu.length != 6) {
+        alert("El numero de cuenta debe tener 6 dígitos");
+        return
+
+    }
+    $("#lista-contactos").append(`
+        <button type="button" class="list-group-item list-group-item-action contacto-item">
+            <strong>${nombre} ${apellido}</strong> - Cuenta: ${cbu} - Banco: ${banco}
+        </button>
+        `);
+    alert("Contacto guardado");
+    $("#form-nuevo-contacto").hide();
+    $("#btn-nuevo-contacto").show();
+    $("#nombre").val("");
+    $("#apellido").val("");
+    $("#cbu").val("");
+    $("#banco").val("");
+
 })
 
-$("#form-busqueda").submit(function(e){ 
+//Buscador de Contactos
+$("#form-busqueda").submit(function (e) {
     e.preventDefault();
-    let termino = $("#buscar").val().toLowerCase();
+    let termino = $("#buscar").val().trim().toLowerCase();
+
+    if (termino === "") {
+        alert("Ingresa un nombre o término para buscar.");
+        return;
+    }
+
     $("#contenedor-contactos").show();
-    $(".contacto-item").each(function(){
+    $(".contacto-item").each(function () {
         let textoContacto = $(this).text().toLowerCase();
         if (textoContacto.includes(termino)) {
             $(this).show();
-        }else{$(this).hide();}
+        } else {
+            $(this).hide();
+        }
     })
 })
 
-$(".contacto-item").click(function(e){
+//Seleccionar Contacto
+$(document).on("click", ".contacto-item", function (e) {
     e.preventDefault();
     $(".contacto-item").removeClass("active");
     $(this).addClass("active");
-    $("#form-enviar-dinero").show();
+    $("#contenedor-enviar").show();
 })
 
-$("#form-enviar-dinero").submit(function(e){
+//Enviar Dinero
+$("#form-enviar-dinero").submit(function (e) {
     e.preventDefault();
-    const saldo = parseInt(localStorage.getItem('saldo'));
+    const saldo = parseInt(localStorage.getItem('saldo')) || 0;
     const montoEnviar = parseInt($("#monto-enviar").val());
+
+    if (isNaN(montoEnviar) || montoEnviar <= 0) {
+        alert("Ingresa un monto válido mayor a $0.");
+        return;
+    }
+
     if (montoEnviar > saldo) {
         alert("Saldo insuficiente")
-    } else {
-        const nuevoSaldo = saldo - montoEnviar;
-        localStorage.setItem('saldo', nuevoSaldo);
-        $("#alert-container-envio").html(`
+        return;
+    }
+    const nuevoSaldo = saldo - montoEnviar;
+    localStorage.setItem('saldo', nuevoSaldo);
+
+    $("#alert-container-envio").html(`
             <div class="alert alert-success" role="alert">
                 Transferencia completada    
             </div>
-            `)
-        setTimeout(function(){
-            window.location.href = "menu.html"
-        }, 2000);   
-    }
+            `);
+
+    setTimeout(function () {
+        window.location.href = "menu.html"
+    }, 2000);
+
 })
 

@@ -15,63 +15,67 @@
         <h1 class="text-primary fw-bold">Alke Wallet</h1>
     </header>
     <main class="container mt-5">
-        <h2 class="text-center fw-bold mb-4">Enviar Dinero</h2>
-        <section class="card p-4 shadow-sm mb-4">
-        <form id="form-busqueda" action="menu.html"><!--formulario de busqueda-->
-            <div class="input-group mb-3">
-                <input class="form-control" type="text" id="buscar" name="buscar" placeholder="Ej: Juan">
-                <button class="btn btn-outline-secondary" type="submit" >Buscar</button>
-            </div>
-            <div class="my-4" style="display:none;" id="contenedor-contactos"><!--lista de contactos-->
-                <h4 class="mb-3">Selecciona un Contacto</h4>
-                <div class="list-group" id="lista-contactos">
-                    <button type="button" class="list-group-item list-group-item-action contacto-item">
-                        <strong>Juan Perez</strong> - Alias: juan.pago - Banco: Estado
-                    </button>
-                    <button type="button" class="list-group-item list-group-item-action contacto-item">
-                        <strong>Maria Gomez</strong> - Alias: maria.wallet - Banco: Santander
-                    </button>
-                    <button type="button" class="list-group-item list-group-item-action contacto-item">
-                        <strong>Carlos Rodriguez</strong> - Alias: carlitos.cbu - Banco: Itau
-                    </button>
-                </div>
-            </div>
-        </form>
-        </section>
-        
-        <section class="card p-4 shadow-sm mb-4">
-        <form style="display:none;" id="form-nuevo-contacto"><!--formulario nuevo contacto-->
-            <h5 class="my-5">Agregar nuevo contacto</h5>
-            <div class="mb-3"><label class="form-label" for="nombre">Nombre</label>
-                <input class="form-control" id="nombre" type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="apellido">Apellido</label>
-                <input class="form-control" id="apellido" type="text">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="cbu">numero cuenta</label>
-                <input class="form-control" id="cbu" type="number" placeholder="Ej:123456">
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="banco">Nombre del Banco</label>
-                <input class="form-control" id="banco" type="text">
-            </div>
-            <button id="btn-guardar" class="btn btn-success" type="submit">Guardar</button>
-            <button id="btn-cancelar" class="btn btn-secondary" type="button">Cancelar</button>
-        </form>
-        <button id="btn-nuevo-contacto" class="btn btn-secondary mb-3" type="button">Agregar nuevo contacto</button>
-        </section>
-        
-        <section class="card p-4 shadow-sm mb-4" style="display:none;">
-        <form id="form-enviar-dinero" ><!--formulario enviar dinero-->
-            <div class="mb-3 mt-3">
-                <label class="form-label" for="monto-enviar">Monto a enviar: </label>
-                <input class="form-control" id="monto-enviar" type="number">
-            </div>
-            <button type="submit" class="btn btn-danger w-100">Enviar dinero</button>
 
-        </form>
+        <h2 class="text-center fw-bold mb-4">Enviar Dinero</h2>
+        <h3 id="saldo-actual" class="fw-bold text-center"></h3><!--inyeccion de jquery-->
+
+        <section class="card p-4 shadow-sm mb-4"><!--formulario de busqueda-->
+            <form id="form-busqueda" action="menu.html">
+
+                <div class="input-group mb-3">
+                    <input class="form-control" type="text" id="buscar" name="buscar" placeholder="Ej: Juan">
+                    <button class="btn btn-outline-secondary" type="submit" >Buscar</button>
+                </div>
+
+                <div class="my-4" style="display:none;" id="contenedor-contactos"><!--lista de contactos-->
+                    <h4 class="mb-3">Selecciona un Contacto</h4>
+                    <div class="list-group" id="lista-contactos">
+                        <button type="button" class="list-group-item list-group-item-action contacto-item">
+                            <strong>Juan Perez</strong> - Alias: juan.pago - Banco: Estado
+                        </button>
+                        <button type="button" class="list-group-item list-group-item-action contacto-item">
+                            <strong>Maria Gomez</strong> - Alias: maria.wallet - Banco: Santander
+                        </button>
+                        <button type="button" class="list-group-item list-group-item-action contacto-item">
+                            <strong>Carlos Rodriguez</strong> - Alias: carlitos.cbu - Banco: Itau
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        
+        <section class="card p-4 shadow-sm mb-4"><!--formulario nuevo contacto-->
+            <form style="display:none;" id="form-nuevo-contacto">
+                <h5 class="my-5">Agregar nuevo contacto</h5>
+                <div class="mb-3"><label class="form-label" for="nombre">Nombre</label>
+                    <input class="form-control" id="nombre" type="text">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="apellido">Apellido</label>
+                    <input class="form-control" id="apellido" type="text">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="cbu">numero cuenta</label>
+                    <input class="form-control" id="cbu" type="number" placeholder="Ej:123456">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="banco">Nombre del Banco</label>
+                    <input class="form-control" id="banco" type="text">
+                </div>
+                <button id="btn-guardar" class="btn btn-success" type="submit">Guardar</button>
+                <button id="btn-cancelar" class="btn btn-secondary" type="button">Cancelar</button>
+            </form>
+            <button id="btn-nuevo-contacto" class="btn btn-secondary mb-3" type="button">Agregar nuevo contacto</button>
+        </section>
+        
+        <section id="contenedor-enviar" class="card p-4 shadow-sm mb-4" style="display:none;"><!--formulario enviar dinero-->
+            <form id="form-enviar-dinero" >
+                <div class="mb-3 mt-3">
+                    <label class="form-label" for="monto-enviar">Monto a enviar: </label>
+                    <input class="form-control" id="monto-enviar" type="number">
+                </div>
+                <button type="submit" class="btn btn-danger w-100">Enviar dinero</button>
+            </form>
         </section>
 
         <div id="alert-container-envio"></div><!--inyeccion jquery-->
