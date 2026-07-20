@@ -10,8 +10,8 @@ Contraseña: 1234
 
 ---
 
-## Características Principales (MVP)
-La aplicación cumple de forma estricta con los requerimientos generales y técnicos del proyecto:
+## Características Principales 
+La aplicación tiene las siguientes funcionalidades:
 
 * **Registro e Inicio de Sesión (`login.html`):** Interfaz de acceso seguro al sistema con validaciones dinámicas de credenciales.
 * **Menú Principal (`menu.html`):** Tarjetas de resumen financiero con visualización en tiempo real del saldo disponible.
@@ -25,6 +25,7 @@ La aplicación cumple de forma estricta con los requerimientos generales y técn
 Para el desarrollo de la interfaz responsiva y la optimización de la experiencia de usuario (UX) se utilizaron las siguientes especificaciones técnicas:
 
 * **HTML5:** Estructura de las páginas esenciales implementando etiquetas semánticas y de accesibilidad.
+* **CSS3:** Estilos personalizados para complementar el framework, mejorando la estética de tarjetas, jerarquía tipográfica y maquetación fluida.
 * **Bootstrap 5:** Framework CSS utilizado para agilizar el diseño adaptable a dispositivos móviles y componentes de interfaz limpios.
-* **JavaScript (ES6) & jQuery:** Motores lógicos implementados para la manipulación dinámica del DOM, validaciones de formularios y manejo asincrónico de eventos sin recargas de página.
+* **JavaScript (ES6) & jQuery:** Motores lógicos implementados para la manipulación dinámica del DOM, validaciones de formularios antes de procesar datos y manejo interactivo de eventos.
 * **Git & GitHub:** Control de versiones estructurado mediante el uso de ramas de características (`feature/login`, `feature/depositos`, `feature/transacciones`) para garantizar buenas prácticas de integración continua.
