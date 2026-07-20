@@ -1,6 +1,6 @@
 # Alke Wallet 
 
-**Alke Wallet** es una aplicación de billetera digital interactiva desarrollada como el proyecto final del Módulo de Fundamentos del Desarrollo Front-end. El objetivo principal de este MVP es proporcionar una interfaz segura, responsiva y fácil de usar para la simulación de transacciones financieras digitales básicas.
+**Alke Wallet** es una aplicación de billetera digital interactiva desarrollada como el proyecto final del Módulo de Fundamentos del Desarrollo Front-end. El objetivo principal de esta aplicación web es proporcionar una interfaz segura, responsiva y fácil de usar para la simulación de transacciones financieras digitales básicas.
 
 ##  Demostración en Vivo
 Puedes interactuar con el prototipo funcional directamente desde tu navegador en el siguiente enlace:
